@@ -77,8 +77,8 @@ def main():
     # e.g. use ('backbone', ) to return backbone feature
     output_layer_names = None
 
-    # process a single image (cats)
-    image_id = 39769
+    # process a single image
+    image_id = 252219
     image = coco.loadImgs(image_id)[0]
     image_name = os.path.join(args.img_root, image['file_name'])
     # get bounding box annotations
@@ -113,7 +113,7 @@ def main():
         out_file = None
     else:
         os.makedirs(args.out_img_root, exist_ok=True)
-        out_file = os.path.join(args.out_img_root, f'vis_cats_image.jpg')
+        out_file = os.path.join(args.out_img_root, f'visualization_image.jpg')
 
     vis_pose_result(
         pose_model,
