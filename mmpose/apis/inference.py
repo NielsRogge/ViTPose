@@ -281,6 +281,9 @@ def _inference_single_pose_model(model,
     batch_data = collate(batch_data, samples_per_gpu=len(batch_data))
     batch_data = scatter(batch_data, [device])[0]
 
+    print("Performing a single forward pass.")
+    print("Shape of images:", batch_data['img'].shape)
+    
     # forward the model
     with torch.no_grad():
         result = model(
