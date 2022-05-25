@@ -78,7 +78,7 @@ def main():
     output_layer_names = None
 
     # process a single image
-    image_id = 252219
+    image_id = 139
     image = coco.loadImgs(image_id)[0]
     image_name = os.path.join(args.img_root, image['file_name'])
     # get bounding box annotations
