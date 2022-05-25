@@ -93,6 +93,8 @@ def main():
         person['bbox'] = ann['bbox']
         person_results.append(person)
 
+    print("Person results:", person_results)
+    
     # test a single image, with a list of bboxes
     pose_results, returned_outputs = inference_top_down_pose_model(
         pose_model,
@@ -105,6 +107,8 @@ def main():
         return_heatmap=return_heatmap,
         outputs=output_layer_names)
 
+    print("Pose results:", pose_results)
+    
     if args.out_img_root == '':
         out_file = None
     else:
