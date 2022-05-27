@@ -211,7 +211,9 @@ class TopDownAffine:
 
         if self.use_udp:
             trans = get_warp_matrix(r, c * 2.0, image_size - 1.0, s * 200.0)
+            print("Shape of warm matrix:", trans.shape)
             if not isinstance(img, list):
+                print("Applying warp affine")
                 img = cv2.warpAffine(
                     img,
                     trans, (int(image_size[0]), int(image_size[1])),
