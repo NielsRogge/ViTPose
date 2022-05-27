@@ -170,11 +170,16 @@ class TopDown(BasePose):
         result = {}
 
         features = self.backbone(img)
+
+        print("Shape of backbone features:", features.shape)
+
         if self.with_neck:
             features = self.neck(features)
         if self.with_keypoint:
             output_heatmap = self.keypoint_head.inference_model(
                 features, flip_pairs=None)
+
+            print("Shape of output heatmap:", output_heatmap.shape)
 
         if self.test_cfg.get('flip_test', True):
             img_flipped = img.flip(3)
