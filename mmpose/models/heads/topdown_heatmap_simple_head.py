@@ -277,6 +277,7 @@ class TopdownHeatmapSimpleHead(TopdownHeatmapBaseHead):
         """
         if not isinstance(inputs, list):
             if not isinstance(inputs, list):
+                print("Upsampling the input")
                 if self.upsample > 0:
                     inputs = resize(
                         input=F.relu(inputs),
@@ -284,6 +285,7 @@ class TopdownHeatmapSimpleHead(TopdownHeatmapBaseHead):
                         mode='bilinear',
                         align_corners=self.align_corners
                         )
+                    print("Shape after upsampling:", inputs.shape)
             return inputs
 
         if self.input_transform == 'resize_concat':
