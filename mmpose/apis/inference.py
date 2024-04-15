@@ -288,6 +288,7 @@ def _inference_single_pose_model(model,
 
     print("Performing a single forward pass.")
     print("Shape of images:", batch_data['img'].shape)
+    print("Mean of images:", torch.mean(batch_data['img']))
 
     # write to HF hub
     # torch.save(batch_data, "vitpose_batch_data.pt")
