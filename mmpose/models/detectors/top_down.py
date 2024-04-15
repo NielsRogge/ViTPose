@@ -198,7 +198,7 @@ class TopDown(BasePose):
             keypoint_result = self.keypoint_head.decode(
                 img_metas, output_heatmap, img_size=[img_width, img_height])
             
-            print("Shape of keypoint result:", keypoint_result.shape)
+            print("Keys of keypoint result:", keypoint_result.keys())
 
             result.update(keypoint_result)
 

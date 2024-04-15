@@ -72,6 +72,8 @@ class TopdownHeatmapBaseHead(nn.Module):
             if bbox_ids is not None:
                 bbox_ids.append(img_metas[i]['bbox_id'])
 
+        print("Getting keypoints from heatmaps...")
+
         preds, maxvals = keypoints_from_heatmaps(
             output,
             c,
