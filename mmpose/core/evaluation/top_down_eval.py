@@ -572,6 +572,9 @@ def keypoints_from_heatmaps(heatmaps,
     N, K, H, W = heatmaps.shape
     if use_udp:
         if target_type.lower() == 'GaussianHeatMap'.lower():
+
+            print("Mean of heatmaps before _get_max_preds:", np.mean(heatmaps))
+
             preds, maxvals = _get_max_preds(heatmaps)
 
             print("Preds after _get_max_preds:", preds)
