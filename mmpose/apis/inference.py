@@ -419,6 +419,8 @@ def inference_top_down_pose_model(model,
             dataset=dataset,
             dataset_info=dataset_info,
             return_heatmap=return_heatmap)
+        
+        print("Poses inside inference_top_down_pose_model:", poses)
 
         if return_heatmap:
             h.layer_outputs['heatmap'] = heatmap
