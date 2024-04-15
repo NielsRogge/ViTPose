@@ -193,6 +193,7 @@ class TopDown(BasePose):
                 features_flipped = self.neck(features_flipped)
             if self.with_keypoint:
                 print("Shape of features_flipped:", features_flipped.shape)
+                print("First values of features_flipped:", features_flipped[0, 0, :3, :3])
                 
                 print("Img metas flip_pairs:", img_metas[0]['flip_pairs'])
                 output_flipped_heatmap = self.keypoint_head.inference_model(
