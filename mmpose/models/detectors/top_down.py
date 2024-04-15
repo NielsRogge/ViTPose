@@ -322,6 +322,10 @@ class TopDown(BasePose):
                 show=False)
             
         print("Pose result:", pose_result)
+        print("Skeleton:", skeleton)
+        print('Kpt score thr:', kpt_score_thr)
+        print('Pose kpt color:', pose_kpt_color)
+        print('Pose link color:', pose_link_color)
 
         if pose_result:
             imshow_keypoints(img, pose_result, skeleton, kpt_score_thr,
