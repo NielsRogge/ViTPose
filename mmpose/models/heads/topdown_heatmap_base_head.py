@@ -73,6 +73,7 @@ class TopdownHeatmapBaseHead(nn.Module):
                 bbox_ids.append(img_metas[i]['bbox_id'])
 
         print("Getting keypoints from heatmaps...")
+        print("Mean of heatmaps before keypoints_from_heatmaps:", np.mean(output))
 
         preds, maxvals = keypoints_from_heatmaps(
             output,
