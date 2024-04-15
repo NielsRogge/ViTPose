@@ -197,6 +197,9 @@ class TopDown(BasePose):
             print("Second forward pass - decoding the results")
             keypoint_result = self.keypoint_head.decode(
                 img_metas, output_heatmap, img_size=[img_width, img_height])
+            
+            print("Shape of keypoint result:", keypoint_result.shape)
+
             result.update(keypoint_result)
 
             if not return_heatmap:
