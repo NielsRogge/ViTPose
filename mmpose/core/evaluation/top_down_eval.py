@@ -525,6 +525,11 @@ def keypoints_from_heatmaps(heatmaps,
     # Avoid being affected
     heatmaps = heatmaps.copy()
 
+    print("Shape of heatmaps:", heatmaps.shape)
+    print("Unbiased:", unbiased)
+    print("Post_process:", post_process)
+    print("Use_udp:", use_udp)
+
     # detect conflicts
     if unbiased:
         assert post_process not in [False, None, 'megvii']
