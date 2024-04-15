@@ -194,6 +194,7 @@ class TopDown(BasePose):
                                   output_flipped_heatmap) * 0.5
 
         if self.with_keypoint:
+            print("Second forward pass - decoding the results")
             keypoint_result = self.keypoint_head.decode(
                 img_metas, output_heatmap, img_size=[img_width, img_height])
             result.update(keypoint_result)
@@ -202,6 +203,8 @@ class TopDown(BasePose):
                 output_heatmap = None
 
             result['output_heatmap'] = output_heatmap
+
+        print("Final result keys:", result.keys())
 
         return result
 
