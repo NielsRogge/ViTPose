@@ -214,6 +214,8 @@ class TopdownHeatmapSimpleHead(TopdownHeatmapBaseHead):
         """
         output = self.forward(x)
 
+        print("Output before flipping back:", output.mean().item())
+
         if flip_pairs is not None:
             output_heatmap = flip_back(
                 output.detach().cpu().numpy(),
