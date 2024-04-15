@@ -283,6 +283,18 @@ def _inference_single_pose_model(model,
 
     print("Performing a single forward pass.")
     print("Shape of images:", batch_data['img'].shape)
+
+    # write to HF hub
+    torch.save(batch_data, "vitpose_batch_data.pt")
+
+    from huggingface_hub import HfApi
+    api = HfApi()
+    api.upload_file(
+        path_or_fileobj="vitpose_batch_data.pt",
+        path_in_repo="vitpose_batch_data.pt",
+        repo_id="nielsr/test-image",
+        repo_type="dataset",
+    )
     
     # forward the model
     with torch.no_grad():
