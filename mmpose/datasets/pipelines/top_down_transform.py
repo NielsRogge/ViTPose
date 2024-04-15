@@ -210,6 +210,7 @@ class TopDownAffine:
         r = results['rotation']
 
         print("Shape of img before affine transform:", img.shape)
+        print("Image size:", image_size)
 
         if self.use_udp:
             trans = get_warp_matrix(r, c * 2.0, image_size - 1.0, s * 200.0)
