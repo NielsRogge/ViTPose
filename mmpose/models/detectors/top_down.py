@@ -184,12 +184,14 @@ class TopDown(BasePose):
             print("Mean of output heatmap:", np.array(output_heatmap).mean())
 
         if self.test_cfg.get('flip_test', True):
+            print("----------------")
             img_flipped = img.flip(3)
+            print("Mean of img_flipped:", img_flipped.mean())
             features_flipped = self.backbone(img_flipped)
             if self.with_neck:
                 features_flipped = self.neck(features_flipped)
             if self.with_keypoint:
-                print("----------------")
+                
                 print("Second forward pass - flipped heatmap")
                 print("Img metas flip_pairs:", img_metas[0]['flip_pairs'])
                 output_flipped_heatmap = self.keypoint_head.inference_model(
