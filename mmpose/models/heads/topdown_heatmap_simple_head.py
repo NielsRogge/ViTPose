@@ -288,7 +288,7 @@ class TopdownHeatmapSimpleHead(TopdownHeatmapBaseHead):
                         align_corners=self.align_corners
                         )
                     print("Shape after upsampling:", inputs.shape)
-                    print("First values after upsampling:", inputs[0,0,:3,:3])
+                    print("Mean after upsampling:", inputs[0,0,:3,:3].mean())
             return inputs
 
         if self.input_transform == 'resize_concat':

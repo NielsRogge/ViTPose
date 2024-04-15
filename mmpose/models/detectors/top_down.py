@@ -202,6 +202,8 @@ class TopDown(BasePose):
                 print("Mean of output_flip heatmap:", np.array(output_flipped_heatmap).mean())
                 output_heatmap = (output_heatmap +
                                   output_flipped_heatmap) * 0.5
+                
+                print("Mean value of final heatmap:", output_heatmap.mean())
 
         if self.with_keypoint:
             print("Decoding the heatmaps to keypoints")
