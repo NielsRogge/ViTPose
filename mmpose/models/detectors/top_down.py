@@ -192,6 +192,8 @@ class TopDown(BasePose):
                 print("Second forward pass - flipped heatmap")
                 output_flipped_heatmap = self.keypoint_head.inference_model(
                     features_flipped, img_metas[0]['flip_pairs'])
+                
+                print("Mean of output_flip heatmap:", np.array(output_flipped_heatmap).mean())
                 output_heatmap = (output_heatmap +
                                   output_flipped_heatmap) * 0.5
 
