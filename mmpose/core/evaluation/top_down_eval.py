@@ -573,6 +573,9 @@ def keypoints_from_heatmaps(heatmaps,
     if use_udp:
         if target_type.lower() == 'GaussianHeatMap'.lower():
             preds, maxvals = _get_max_preds(heatmaps)
+
+            print("Preds after _get_max_preds:", preds)
+
             preds = post_dark_udp(preds, heatmaps, kernel=kernel)
         elif target_type.lower() == 'CombinedTarget'.lower():
             for person_heatmaps in heatmaps:
