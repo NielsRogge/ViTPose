@@ -181,6 +181,7 @@ class TopDown(BasePose):
 
             print("Shape of output heatmap:", output_heatmap.shape)
             print("First values ouf output heatmap:", output_heatmap[0,0,:3,:3])
+            print("Mean of output heatmap:", np.array(output_heatmap).mean())
 
         if self.test_cfg.get('flip_test', True):
             img_flipped = img.flip(3)
