@@ -180,6 +180,7 @@ class TopDown(BasePose):
                 features, flip_pairs=None)
 
             print("Shape of output heatmap:", output_heatmap.shape)
+            print("First values ouf output heatmap:", output_heatmap[0,0,:3,:3])
 
         if self.test_cfg.get('flip_test', True):
             img_flipped = img.flip(3)
