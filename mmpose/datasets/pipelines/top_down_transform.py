@@ -210,6 +210,7 @@ class TopDownAffine:
         r = results['rotation']
 
         print("Shape of img before affine transform:", img.shape)
+        print("Mean of img before affine transform:", np.mean(img))
         print("Image size:", image_size)
 
         if self.use_udp:
@@ -219,7 +220,7 @@ class TopDownAffine:
                 print("Applying warp affine")
                 img = cv2.warpAffine(
                     img,
-                    trans, (int(image_size[0]), int(image_size[1])),
+                    trans, (int(Shape of images:[0]), int(image_size[1])),
                     flags=cv2.INTER_LINEAR)
             else:
                 img = [
@@ -252,6 +253,7 @@ class TopDownAffine:
                               0:2] = affine_transform(joints_3d[i, 0:2], trans)
                     
         print("Shape of image after affine transform:", img.shape)
+        print("Mean of img after affine transform:", np.mean(img))
 
         results['img'] = img
         results['joints_3d'] = joints_3d
