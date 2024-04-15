@@ -209,6 +209,8 @@ class TopDownAffine:
         s = results['scale']
         r = results['rotation']
 
+        print("Shape of img before affine transform:", img.shape)
+
         if self.use_udp:
             trans = get_warp_matrix(r, c * 2.0, image_size - 1.0, s * 200.0)
             print("Shape of warm matrix:", trans.shape)
