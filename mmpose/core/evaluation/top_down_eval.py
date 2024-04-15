@@ -529,6 +529,7 @@ def keypoints_from_heatmaps(heatmaps,
     print("Unbiased:", unbiased)
     print("Post_process:", post_process)
     print("Use_udp:", use_udp)
+    print("Target_type:", target_type)
 
     # detect conflicts
     if unbiased:
