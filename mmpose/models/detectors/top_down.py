@@ -189,13 +189,14 @@ class TopDown(BasePose):
             if self.with_neck:
                 features_flipped = self.neck(features_flipped)
             if self.with_keypoint:
+                print("Second forward pass - flipped heatmap")
                 output_flipped_heatmap = self.keypoint_head.inference_model(
                     features_flipped, img_metas[0]['flip_pairs'])
                 output_heatmap = (output_heatmap +
                                   output_flipped_heatmap) * 0.5
 
         if self.with_keypoint:
-            print("Second forward pass - decoding the results")
+            print("Decoding the heatmaps to keypoints")
             keypoint_result = self.keypoint_head.decode(
                 img_metas, output_heatmap, img_size=[img_width, img_height])
             
