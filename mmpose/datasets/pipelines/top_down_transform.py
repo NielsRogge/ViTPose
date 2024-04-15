@@ -220,7 +220,7 @@ class TopDownAffine:
                 print("Applying warp affine")
                 img = cv2.warpAffine(
                     img,
-                    trans, (int(Shape of images:[0]), int(image_size[1])),
+                    trans, (int(image_size[0]), int(image_size[1])),
                     flags=cv2.INTER_LINEAR)
             else:
                 img = [
