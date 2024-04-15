@@ -242,9 +242,14 @@ def _inference_single_pose_model(model,
             raise NotImplementedError()
         dataset_name = dataset
 
+    print("Bboxes:", bboxes)
+
     batch_data = []
     for bbox in bboxes:
         center, scale = _box2cs(cfg, bbox)
+
+        print("Center:", center)
+        print("Scale:", scale)
 
         # prepare data
         data = {
