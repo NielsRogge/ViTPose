@@ -220,6 +220,7 @@ class TopDown(BasePose):
             result['output_heatmap'] = output_heatmap
 
         print("Final result keys:", result.keys())
+        print("Final result:", result)
 
         return result
 
