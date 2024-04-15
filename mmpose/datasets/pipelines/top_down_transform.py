@@ -250,6 +250,8 @@ class TopDownAffine:
                 if joints_3d_visible[i, 0] > 0.0:
                     joints_3d[i,
                               0:2] = affine_transform(joints_3d[i, 0:2], trans)
+                    
+        print("Shape of image after affine transform:", img.shape)
 
         results['img'] = img
         results['joints_3d'] = joints_3d
