@@ -398,15 +398,15 @@ def inference_top_down_pose_model(model,
     bboxes = np.array([box['bbox'] for box in person_results])
 
     # save to hf_hub
-    torch.save(person_results, "vitpose_person_results.pt")
-    from huggingface_hub import HfApi
-    api = HfApi()
-    api.upload_file(
-        path_or_fileobj="vitpose_person_results.pt",
-        path_in_repo="vitpose_person_results.pt",
-        repo_id="nielsr/test-image",
-        repo_type="dataset",
-    )
+    # torch.save(person_results, "vitpose_person_results.pt")
+    # from huggingface_hub import HfApi
+    # api = HfApi()
+    # api.upload_file(
+    #     path_or_fileobj="vitpose_person_results.pt",
+    #     path_in_repo="vitpose_person_results.pt",
+    #     repo_id="nielsr/test-image",
+    #     repo_type="dataset",
+    # )
 
     # Select bboxes by score threshold
     if bbox_thr is not None:
