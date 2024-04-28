@@ -210,7 +210,8 @@ class TopDownMoE(BasePose):
             assert 'bbox_id' in img_metas[0]
 
         result = {}
-        img_sources = torch.from_numpy(np.array([ele['dataset_idx'] for ele in img_metas])).to(img.device)
+        # fix as discussed in https://github.com/ViTAE-Transformer/ViTPose/issues/69
+        img_sources = torch.from_numpy(np.array([0 for ele in img_metas])).to(img.device)
 
         features = self.backbone(img, img_sources)
 
