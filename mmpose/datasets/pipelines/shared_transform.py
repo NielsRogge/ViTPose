@@ -165,6 +165,11 @@ class Collect:
                     key_src, key_tgt = key[:2]
                 else:
                     key_src = key_tgt = key
+
+                if key == "dataset_idx":
+                    # skip as reported in https://github.com/ViTAE-Transformer/ViTPose/issues/69
+                    continue
+
                 meta[key_tgt] = results[key_src]
         if 'bbox_id' in results:
             meta['bbox_id'] = results['bbox_id']
