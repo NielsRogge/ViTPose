@@ -358,6 +358,10 @@ class ViTMoE(BaseBackbone):
 
     def forward_features(self, x, dataset_source=None):
         B, C, H, W = x.shape
+
+        print("Shape of pixel values:", x.shape)
+        print("First values of pixel values:", x[0, 0, :3, :3])
+
         x, (Hp, Wp) = self.patch_embed(x)
 
         if self.pos_embed is not None:
