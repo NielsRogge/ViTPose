@@ -205,7 +205,12 @@ class TopdownHeatmapSimpleHead(TopdownHeatmapBaseHead):
         print("First values of transformed input:", x[0,0,:3,:3])
 
         x = self.deconv_layers(x)
+
         x = self.final_layer(x)
+
+        print("Shape after final layer:", x.shape)
+        print("First values after final layer:", x[0,0,:3,:3])
+
         return x
 
     def inference_model(self, x, flip_pairs=None):
@@ -311,6 +316,7 @@ class TopdownHeatmapSimpleHead(TopdownHeatmapBaseHead):
         elif self.input_transform == 'multiple_select':
             inputs = [inputs[i] for i in self.in_index]
         else:
+            print("In_index:", self.in_index)
             inputs = inputs[self.in_index]
 
         return inputs
