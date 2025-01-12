@@ -96,7 +96,8 @@ model = dict(
         qkv_bias=True,
         drop_path_rate=0.1,
         num_expert=6,
-        part_features=192
+        # part_features=192
+        part_features=96,
     ),
     keypoint_head=dict(
         type='TopdownHeatmapSimpleHead',
