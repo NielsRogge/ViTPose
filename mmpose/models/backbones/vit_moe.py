@@ -361,6 +361,7 @@ class ViTMoE(BaseBackbone):
 
         print("Shape of pixel values:", x.shape)
         print("First values of pixel values:", x[0, 0, :3, :3])
+        print("Dataset source:", dataset_source)
 
         x, (Hp, Wp) = self.patch_embed(x)
 
@@ -368,6 +369,9 @@ class ViTMoE(BaseBackbone):
             # fit for multiple GPU training
             # since the first element for pos embed (sin-cos manner) is zero, it will cause no difference
             x = x + self.pos_embed[:, 1:] + self.pos_embed[:, :1]
+
+        print("Shape after patch embedding:", x.shape)
+        print("First values after patch embedding:", x[0, :3, :3])
 
         for blk in self.blocks:
             if self.use_checkpoint:
