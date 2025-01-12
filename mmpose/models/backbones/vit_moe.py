@@ -373,11 +373,14 @@ class ViTMoE(BaseBackbone):
         print("Shape after patch embedding:", x.shape)
         print("First values after patch embedding:", x[0, :3, :3])
 
-        for blk in self.blocks:
+        for idx, blk in enumerate(self.blocks):
             if self.use_checkpoint:
                 x = checkpoint.checkpoint(blk, x, dataset_source)
             else:
                 x = blk(x, dataset_source)
+            if idx == 0:
+                print("Shape after first Transformer layer:", x.shape)
+                print("First values after first Transformer layer:", x[0, :3, :3])
 
         x = self.last_norm(x)
 
