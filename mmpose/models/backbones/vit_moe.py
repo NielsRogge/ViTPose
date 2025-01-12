@@ -375,6 +375,9 @@ class ViTMoE(BaseBackbone):
 
         xp = x.permute(0, 2, 1).reshape(B, -1, Hp, Wp).contiguous()
 
+        print("Shape after ViT-MoE:", xp.shape)
+        print("First values:", xp[0, 0, :3, :3])
+
         return xp
 
     def forward(self, x, dataset_source=None):
