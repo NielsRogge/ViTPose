@@ -231,6 +231,9 @@ class TopDownMoE(BasePose):
                     features_flipped, img_metas[0]['flip_pairs'])
                 output_heatmap = (output_heatmap +
                                   output_flipped_heatmap) * 0.5
+                
+        print("Shape of averaged heatmap: ", output_heatmap.shape)
+        print("First values of averaged heatmap: ", output_heatmap[0, 0, :3, :3])
 
         if self.with_keypoint:
             keypoint_result = self.keypoint_head.decode(
