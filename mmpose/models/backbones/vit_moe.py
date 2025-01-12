@@ -80,6 +80,8 @@ class MoEMlp(nn.Module):
         super().__init__()
         out_features = out_features or in_features
         hidden_features = hidden_features or in_features
+        print("Out features:", out_features)
+        print("Out features - part_features:", out_features - part_features)
         self.part_features = part_features
         self.fc1 = nn.Linear(in_features, hidden_features)
         self.act = act_layer()
