@@ -200,6 +200,9 @@ class TopdownHeatmapSimpleHead(TopdownHeatmapBaseHead):
         print("Shape of the simple head input:", x.shape)
 
         x = self._transform_inputs(x)
+
+        print("Shape of transformed input:", x.shape)
+
         x = self.deconv_layers(x)
         x = self.final_layer(x)
         return x
