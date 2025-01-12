@@ -196,6 +196,9 @@ class TopdownHeatmapSimpleHead(TopdownHeatmapBaseHead):
 
     def forward(self, x):
         """Forward function."""
+
+        print("Shape of the simple head input:", x.shape)
+
         x = self._transform_inputs(x)
         x = self.deconv_layers(x)
         x = self.final_layer(x)
